@@ -1,42 +1,71 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+
+/* todo data */
+.data{
+
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin:0 auto;
+  text-align: start;
+  background-color: rgb(230, 219, 242);
+  font-size: large;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input{
+  margin-right: 0.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+button{
+  margin: 20px;
+  background-color: rgba(252, 129, 129, 0.836);
+  border-radius: 10px;
+  border: none;
+  padding: 5px 10px;
+  color:white;
 }
 
-.card {
-  padding: 2em;
+.data li{
+  list-style: none;
+  margin: 20px;
 }
 
-.read-the-docs {
-  color: #888;
+.strike{
+  text-decoration: line-through;
+  color:rgb(252, 114, 114);
 }
+
+.nonStrike{
+  text-decoration: none;
+  color:black;
+}
+
+nav{
+  display: flex;
+  justify-content: center;
+  font-size: larger;
+  gap:2rem
+}
+
+.nav{
+ text-decoration: none;
+ color:darkgoldenrod;
+}
+
+.nav:hover{
+  font-size: large;
+  font-weight: bold;
+}
+
+.active{
+  text-decoration: none;
+  color:purple;
+  font-weight: 900;
+}
+

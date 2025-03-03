@@ -11,7 +11,18 @@ export type TodoProviderPropType={
 
 export const Provider=({children}:TodoProviderPropType)=>{        // children type is ReactNode
 
-    const[todosData,setTodosData]=useState<TodoType[]>([])         // here all todo data store and pass type(TodoType) which define in ContextApi.tsx file
+    // const[todosData,setTodosData]=useState<TodoType[]>([])         // here all todo data store and pass type(TodoType) which define in ContextApi.tsx file
+
+    const[todosData,setTodosData]=useState<TodoType[]>(()=>{
+      try {
+        // local storage data get which name is TodoData
+       const newTodos= localStorage.getItem("TodoData") || "[]";    // OR operator use so if data is not available in localstorage then empty array as an initial data use , for prevent error we wrap in string , so after parse method it's get original form
+       return JSON.parse(newTodos) as TodoType[];     //  (data is string format so convert into object form using JSON.parse)
+      } catch (error) {
+        console.log(error);
+        return []
+      }
+    })         // here all todo data store and pass type(TodoType) which define in ContextApi.tsx file
 
    const handleAddTodo=(task:string)=>{           //task as a parameter get user input
        // update state fun
@@ -27,6 +38,10 @@ export const Provider=({children}:TodoProviderPropType)=>{        // children ty
             },
             ...prev                         // here previous data  , so new data always be top 
         ]
+        
+        //Local storage todo data set in string formate (so that when we refresh the site data will not remove)
+        localStorage.setItem("TodoData",JSON.stringify(newTodos));         // here TodoData variable name pass where data store
+
         // console.log(newTodos);
         return newTodos;                     // here this fun only update fun not return 
        })
@@ -42,6 +57,10 @@ export const Provider=({children}:TodoProviderPropType)=>{        // children ty
                //    else
                return curTodo;
          })
+      
+         //Local storage todo data set in string formate (for update also)
+        localStorage.setItem("TodoData",JSON.stringify(newTodos));
+
          return newTodos                   //fun not return anything just update setTodoData fun
       })
   }
@@ -50,6 +69,10 @@ export const Provider=({children}:TodoProviderPropType)=>{        // children ty
   const handleDeleteTodo=(id:string)=>{
       setTodosData((prev)=>{
         const newTodos = prev.filter((curTodo)=> curTodo.id !== id) ;   // so those id not match filter only that data
+
+        //Local storage todo data set in string formate (for update also)
+        localStorage.setItem("TodoData",JSON.stringify(newTodos));
+
         return newTodos;
       })
   }

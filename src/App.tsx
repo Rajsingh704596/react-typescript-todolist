@@ -14,7 +14,7 @@ function App() {
     <BrowserRouter>
     <Provider>
 
-      <h1> Todo List With React-TypeScript</h1>
+      <h1> Todo List Using React-TypeScript</h1>
       <hr />
       <NavBar/>
       <hr />

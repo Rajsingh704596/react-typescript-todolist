@@ -1,8 +1,3 @@
-Here’s an updated version of your `README.md` cheatsheet for React 19 with Vite and TypeScript. I’ve added more common TypeScript commands used in TSX, expanded the reference table, and included a practical "To-Do List" example to demonstrate where TypeScript is applied in a React project. The structure remains beginner-friendly, with a focus on transitioning from JSX to TSX and highlighting TypeScript’s utility.
-
----
-
-```markdown
 # React 19 + Vite + TypeScript Cheatsheet for Beginners
 
 This cheatsheet is for beginners switching from JSX (plain React) to TSX (React with TypeScript) using React 19 and Vite. TypeScript adds type safety, making your code more reliable. Below, we’ll cover setup, key concepts, common TSX commands, and a To-Do List example to show where TypeScript shines—props, state, events, and more.
